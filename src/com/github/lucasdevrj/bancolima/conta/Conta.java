@@ -8,12 +8,18 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
+import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public abstract class Conta {
 
 	private Cliente titular;
 	private float saldo;
 	
+	public Conta(Cliente titular, float saldo) {
+		this.titular = titular;
+		this.saldo = saldo;
+	}
+
 	public void deposita(float valor) throws IOException {
 		this.saldo += valor;
 		OutputStream fos = new FileOutputStream("arquivo.txt");
@@ -24,8 +30,11 @@ public abstract class Conta {
 		bw.newLine();
 		bw.write("Valor do deposito: R$ " + valor);
 		bw.newLine();
+		bw.newLine();
 		
 		bw.close();
+		
+		LeituraArquivo.leArquivo();
 		
 	}
 	
@@ -35,5 +44,10 @@ public abstract class Conta {
 	
 	public float getSaldo() {
 		return saldo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Informações da Conta\nNome: " + titular.getInformacoesPessoais().getNome() + "\nSobrenome: " + titular.getInformacoesPessoais().getSobrenome() + "\nCPF: " + titular.getInformacoesPessoais().getCpf() + "\nSaldo: R$ " + this.saldo;
 	}
 }
