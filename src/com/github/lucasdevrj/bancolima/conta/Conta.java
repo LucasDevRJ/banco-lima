@@ -21,20 +21,24 @@ public abstract class Conta {
 	}
 
 	public void deposita(float valor) throws IOException {
-		this.saldo += valor;
-		OutputStream fos = new FileOutputStream("arquivo.txt");
-		Writer wt = new OutputStreamWriter(fos);
-		BufferedWriter bw = new BufferedWriter(wt);
-		
-		bw.write("Deposito concluido com sucesso!");
-		bw.newLine();
-		bw.write("Valor do deposito: R$ " + valor);
-		bw.newLine();
-		bw.newLine();
-		
-		bw.close();
-		
-		LeituraArquivo.leArquivo();
+		if (valor > 0) {
+			this.saldo += valor;
+			OutputStream fos = new FileOutputStream("arquivo.txt");
+			Writer wt = new OutputStreamWriter(fos);
+			BufferedWriter bw = new BufferedWriter(wt);
+			
+			bw.write("Deposito concluido com sucesso!");
+			bw.newLine();
+			bw.write("Valor do deposito: R$ " + valor);
+			bw.newLine();
+			bw.newLine();
+			
+			bw.close();
+			
+			LeituraArquivo.leArquivo();
+		} else {
+			throw new IllegalArgumentException("Valor inválido para depósito!");
+		}
 		
 	}
 	

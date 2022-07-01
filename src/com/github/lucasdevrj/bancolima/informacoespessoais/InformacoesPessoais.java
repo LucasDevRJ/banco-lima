@@ -10,12 +10,16 @@ public class InformacoesPessoais {
 	private String nacionalidade;
 	
 	public InformacoesPessoais(String nome, String sobrenome, String dataNascimento, String cpf, String rg, String nacionalidade) {
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.nacionalidade = nacionalidade;
+		if (nome.length() > 0 && sobrenome.length() > 0 && dataNascimento.length() > 0 && cpf.length() > 0 && rg.length() > 0 && nacionalidade.length() > 0) {
+			this.nome = nome;
+			this.sobrenome = sobrenome;
+			this.dataNascimento = dataNascimento;
+			this.cpf = cpf;
+			this.rg = rg;
+			this.nacionalidade = nacionalidade;
+		} else {
+			throw new NullPointerException("Insira todas as informações pessoais!");
+		}
 	}
 	
 	public String getNome() {
