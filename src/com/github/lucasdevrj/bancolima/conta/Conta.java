@@ -13,7 +13,7 @@ import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 public abstract class Conta {
 
 	private Cliente titular;
-	private float saldo;
+	protected float saldo;
 	
 	public Conta(Cliente titular, float saldo) {
 		this.titular = titular;
@@ -48,6 +48,6 @@ public abstract class Conta {
 	
 	@Override
 	public String toString() {
-		return "Informações da Conta\nNome: " + titular.getInformacoesPessoais().getNome() + "\nSobrenome: " + titular.getInformacoesPessoais().getSobrenome() + "\nCPF: " + titular.getInformacoesPessoais().getCpf() + "\nSaldo: R$ " + this.saldo;
+		return "Informações da Conta\nNome: " + titular.getInformacoesPessoais().getNome() + "\nSobrenome: " + titular.getInformacoesPessoais().getSobrenome() + "\nCPF: " + titular.getInformacoesPessoais().getCpf() + "\nSaldo: R$ " + this.saldo + "\n";
 	}
 }

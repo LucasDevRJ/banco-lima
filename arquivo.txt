@@ -1,3 +1,5 @@
-Deposito concluido com sucesso!
-Valor do deposito: R$ 300.0
+Valor transferido com sucesso!
+Valor transferido: R$ 600.0
+Recebedor: Pedro Marins
+CPF do Recebedor: 322.112.341-12
 
