@@ -8,18 +8,25 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
+import com.github.lucasdevrj.bancolima.excecao.ContaInvalida;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public abstract class Conta {
 
 	private Cliente titular;
 	protected float saldo;
-	private int agencia;
-	private int numero;
+	private String agencia;
+	private String numero;
 	
-	public Conta(Cliente titular, int agencia, int numero, float saldo) {
-		this.titular = titular;
-		this.saldo = saldo;
+	public Conta(Cliente titular, String agencia, String numero, float saldo) throws Exception {
+		if (agencia.length() == 2 && numero.length() == 5 && saldo >= 0) {
+			this.titular = titular;
+			this.agencia = agencia;
+			this.numero = numero;
+			this.saldo = saldo;
+		} else {
+			throw new ContaInvalida("Agência, número ou saldo informados são inválidos!\nAgência tem que ter apenas dois digitos, número apenas cinco digitos e saldo tem que ser maior ou igual a zero.");
+		}
 	}
 
 	public void deposita(float valor) throws IOException {
@@ -52,16 +59,11 @@ public abstract class Conta {
 		return saldo;
 	}
 	
-	public int getAgencia() {
+	public String getAgencia() {
 		return agencia;
 	}
 	
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
-	}
-	
-	@Override
-	public String toString() {
-		return "Informações da Conta\nNome: " + titular.getInformacoesPessoais().getNome() + "\nSobrenome: " + titular.getInformacoesPessoais().getSobrenome() + "\nCPF: " + titular.getInformacoesPessoais().getCpf() + "\nSaldo: R$ " + this.saldo + "\n";
 	}
 }

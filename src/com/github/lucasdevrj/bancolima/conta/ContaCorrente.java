@@ -13,10 +13,12 @@ import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public class ContaCorrente extends Conta {
 
-	public ContaCorrente(Cliente titular, float saldo) {
-		super(titular, saldo);
-	}
 	
+	
+	public ContaCorrente(Cliente titular, String agencia, String numero, float saldo) throws Exception {
+		super(titular, agencia, numero, saldo);
+	}
+
 	public void transfere(ContaCorrente contaRecebedora, float valorTransferencia) throws IOException, Exception {
 		if (super.getSaldo() >= valorTransferencia) {
 			super.saldo -= valorTransferencia;

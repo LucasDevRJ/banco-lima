@@ -11,11 +11,11 @@ import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public class ContaPoupanca extends Conta {
-	
-	private double taxa = 0.04;
 
-	public ContaPoupanca(Cliente titular, float saldo) {
-		super(titular, saldo);
+	private double taxa = 0.04;
+	
+	public ContaPoupanca(Cliente titular, String agencia, String numero, float saldo) throws Exception {
+		super(titular, agencia, numero, saldo);
 	}
 	
 	public void investir(float valor, int meses) throws Exception {
