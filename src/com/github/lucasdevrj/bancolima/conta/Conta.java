@@ -14,8 +14,10 @@ public abstract class Conta {
 
 	private Cliente titular;
 	protected float saldo;
+	private int agencia;
+	private int numero;
 	
-	public Conta(Cliente titular, float saldo) {
+	public Conta(Cliente titular, int agencia, int numero, float saldo) {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
@@ -48,6 +50,14 @@ public abstract class Conta {
 	
 	public float getSaldo() {
 		return saldo;
+	}
+	
+	public int getAgencia() {
+		return agencia;
+	}
+	
+	public int getNumero() {
+		return numero;
 	}
 	
 	@Override
