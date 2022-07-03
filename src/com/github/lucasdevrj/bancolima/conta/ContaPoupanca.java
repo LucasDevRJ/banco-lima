@@ -44,5 +44,10 @@ public class ContaPoupanca extends Conta {
 			throw new SaldoInsuficiente("Saldo insuficiente para fazer investimento!");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nTipo de Conta: Poupança";
+	}
 
 }
