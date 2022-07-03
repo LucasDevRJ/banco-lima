@@ -77,4 +77,9 @@ public abstract class Conta {
 	public boolean isEstaAtiva() {
 		return estaAtiva;
 	}
+	
+	@Override
+	public String toString() {
+		return "Informações da Conta\nAgência: " + this.agencia + "\nNúmero: " + this.numero + "\nSaldo: " + this.saldo + "\nTitular: " + this.titular.getInformacoesPessoais().getNome() + " " + this.titular.getInformacoesPessoais().getSobrenome();
+	}
 }
