@@ -12,8 +12,6 @@ import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public class ContaCorrente extends Conta {
-
-	
 	
 	public ContaCorrente(Cliente titular, String agencia, String numero, float saldo) throws Exception {
 		super(titular, agencia, numero, saldo);
@@ -43,5 +41,10 @@ public class ContaCorrente extends Conta {
 		} else {
 			throw new SaldoInsuficiente("Saldo insuficiente para fazer a transferência!");
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nTipo de Conta: Corrente";
 	}
 }
