@@ -22,10 +22,10 @@ public class BancoLima {
 	}
 	
 	public void adicionaConta(Conta conta) throws ContasIguais {
-		if (this.contas.equals(conta)) {
+		if (!this.contas.contains(conta)) {
 			this.contas.add(conta);
 		} else {
-			throw new ContasIguais("Existem contas iguais!\nNão pode criar mais de uma conta com o mesmo número de agência e número da conta.");
+			throw new ContasIguais("Existem contas iguais!\nNão pode adicionar mais de uma conta com o mesmo número de agência e número da conta.");
 		}
 	}
 	

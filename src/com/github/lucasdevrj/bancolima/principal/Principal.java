@@ -17,6 +17,8 @@ public class Principal {
 		ContaCorrente cc1 = new ContaCorrente(cf1, "11", "33213", 5000.00f);
 		ContaPoupanca cp1 = new ContaPoupanca(cf1, "21", "23421", 300.00f);
 		
+		ContaCorrente cc3 = new ContaCorrente(cf1, "11", "33213", 5000.00f);
+		
 		InformacoesPessoais ip2 = new InformacoesPessoais("Pedro", "Marins", "23/02/1992", "322.112.341-12", "33.221.225-3", "brasileiro");
 		Endereco ed2 = new Endereco("22312-777", "Rio de Janeiro", "Rio de Janeiro", "Niteroi", "Bananada", 309, "Próximo a Caelum", "Casa número 301");
 		Cliente cf2 = new ClienteFisico(ip2, ed2);
@@ -31,10 +33,9 @@ public class Principal {
 		BancoLima bl = new BancoLima();
 		bl.adicionaConta(cc1);
 		bl.adicionaConta(cc2);
+		bl.adicionaConta(cc3);
 		
 		bl.exibeContas();
-		
-		System.out.println(cc1.equals(cc2));
 	}
 
 }
