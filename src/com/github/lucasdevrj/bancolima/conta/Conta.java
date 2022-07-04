@@ -32,7 +32,7 @@ public abstract class Conta {
 		}
 	}
 
-	public void deposita(float valor) throws IOException, Exception {
+	public void deposita(float valor) throws IOException, ContaInativa {
 		if (this.estaAtiva == true) {
 			if (valor > 0) {
 				this.saldo += valor;
@@ -76,6 +76,16 @@ public abstract class Conta {
 
 	public boolean isEstaAtiva() {
 		return estaAtiva;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Conta outraConta = (Conta) obj;
+		if (this.numero == outraConta.numero && this.agencia == outraConta.agencia) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	@Override

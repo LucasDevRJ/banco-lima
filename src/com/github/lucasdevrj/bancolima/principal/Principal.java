@@ -33,6 +33,8 @@ public class Principal {
 		bl.adicionaConta(cc2);
 		
 		bl.exibeContas();
+		
+		System.out.println(cc1.equals(cc2));
 	}
 
 }

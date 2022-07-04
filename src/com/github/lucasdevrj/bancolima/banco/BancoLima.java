@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.github.lucasdevrj.bancolima.conta.Conta;
 import com.github.lucasdevrj.bancolima.endereco.Endereco;
+import com.github.lucasdevrj.bancolima.excecao.ContasIguais;
 
 public class BancoLima {
 
@@ -20,8 +21,12 @@ public class BancoLima {
 		}
 	}
 	
-	public void adicionaConta(Conta conta) {
-		this.contas.add(conta);
+	public void adicionaConta(Conta conta) throws ContasIguais {
+		if (this.contas.equals(conta)) {
+			this.contas.add(conta);
+		} else {
+			throw new ContasIguais("Existem contas iguais!\nNão pode criar mais de uma conta com o mesmo número de agência e número da conta.");
+		}
 	}
 	
 	public String getNome() {
