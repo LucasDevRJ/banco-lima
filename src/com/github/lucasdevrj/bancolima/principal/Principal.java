@@ -21,8 +21,8 @@ public class Principal {
 		
 		InformacoesPessoais ip2 = new InformacoesPessoais("Pedro", "Marins", "23/02/1992", "322.112.341-12", "33.221.225-3", "brasileiro");
 		Endereco ed2 = new Endereco("22312-777", "Rio de Janeiro", "Rio de Janeiro", "Niteroi", "Bananada", 309, "Próximo a Caelum", "Casa número 301");
-		Cliente cf2 = new ClienteFisico(ip2, ed2);
-		ContaCorrente cc2 = new ContaCorrente(cf2,"11", "11111", 9000.00f);
+		Cliente cf2 = new ClienteFisico(ip2, ed2, "Lima Plus");
+		ContaCorrente cc2 = new ContaCorrente(cf2,"12", "11111", 9000.00f);
 		
 		cc1.deposita(300.00f);
 		cc1.transfere(cc2, 600.00f);
@@ -33,8 +33,6 @@ public class Principal {
 		BancoLima bl = new BancoLima();
 		bl.adicionaConta(cc1);
 		bl.adicionaConta(cc2);
-		bl.adicionaConta(cc3);
-		
 		bl.exibeContas();
 	}
 

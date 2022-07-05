@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
 import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
 import com.github.lucasdevrj.bancolima.excecao.ContaInvalida;
