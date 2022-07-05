@@ -1,3 +1,3 @@
-Valor investido: R$ 300.0
-Meses investidos: 3
-Valor retornado: R$ 36.0
+Compra realizada com sucesso!
+Produto: FIFA 23
+Valor da Compra: R$ 320.0

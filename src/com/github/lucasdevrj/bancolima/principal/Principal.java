@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.bancolima.principal;
 
 import com.github.lucasdevrj.bancolima.banco.BancoLima;
+import com.github.lucasdevrj.bancolima.cartao.CartaoCredito;
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
 import com.github.lucasdevrj.bancolima.cliente.ClienteFisico;
 import com.github.lucasdevrj.bancolima.conta.ContaCorrente;
@@ -17,8 +18,6 @@ public class Principal {
 		ContaCorrente cc1 = new ContaCorrente(cf1, "11", "33213", 5000.00f);
 		ContaPoupanca cp1 = new ContaPoupanca(cf1, "21", "23421", 300.00f);
 		
-		ContaCorrente cc3 = new ContaCorrente(cf1, "11", "33213", 5000.00f);
-		
 		InformacoesPessoais ip2 = new InformacoesPessoais("Pedro", "Marins", "23/02/1992", "322.112.341-12", "33.221.225-3", "brasileiro");
 		Endereco ed2 = new Endereco("22312-777", "Rio de Janeiro", "Rio de Janeiro", "Niteroi", "Bananada", 309, "Próximo a Caelum", "Casa número 301");
 		Cliente cf2 = new ClienteFisico(ip2, ed2, "Lima Plus");
@@ -34,6 +33,9 @@ public class Principal {
 		bl.adicionaConta(cc1);
 		bl.adicionaConta(cc2);
 		bl.exibeContas();
-	}
 
+		CartaoCredito cdc = new CartaoCredito("3444 1222 4333 1212", "12/06/2027", 322, 1212, 2000.00f, cf1);
+		cdc.comprarComCartaoCredito("GTA V", 180.00f);
+		cdc.comprarComCartaoCredito("FIFA 23", 320.00f);
+	}
 }

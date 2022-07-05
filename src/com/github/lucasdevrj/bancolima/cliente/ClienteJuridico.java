@@ -1,5 +1,6 @@
 package com.github.lucasdevrj.bancolima.cliente;
 
+import com.github.lucasdevrj.bancolima.conta.Conta;
 import com.github.lucasdevrj.bancolima.endereco.Endereco;
 import com.github.lucasdevrj.bancolima.informacoespessoais.InformacoesPessoais;
 
