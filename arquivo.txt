@@ -1,3 +1,5 @@
-Compra realizada com sucesso!
+Fatura do cartão de crédito
+Produto: GTA V
+Valor: R$ 180.0
 Produto: FIFA 23
-Valor da Compra: R$ 320.0
+Valor: R$ 320.0

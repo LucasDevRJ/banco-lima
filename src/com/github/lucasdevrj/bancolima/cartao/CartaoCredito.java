@@ -6,27 +6,33 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 
-import com.github.lucasdevrj.bancolima.cliente.Cliente;
+import com.github.lucasdevrj.bancolima.conta.Conta;
 import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
+import com.github.lucasdevrj.bancolima.excecao.LimiteUltrapassado;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public class CartaoCredito extends Cartao {
 	
 	private float credito = 0.0f;
 	private float limite;
-	private Cliente proprietario;
+	private Conta titular;
+	private ArrayList<String> produtos = new ArrayList<String>();
+	private ArrayList<Float> valores = new ArrayList<Float>();
 
-	public CartaoCredito(String numero, String validade, int codigo, int senha, float limite, Cliente proprietario) {
+	public CartaoCredito(String numero, String validade, int codigo, int senha, float limite, Conta titular) {
 		super(numero, validade, codigo, senha);
 		this.limite = limite;
-		this.proprietario = proprietario;
+		this.titular = titular;
 	}
 	
-	public void comprarComCartaoCredito(String produto, float valor) throws ContaInativa, IOException {
+	public void comprarComCartaoCredito(String produto, float valor) throws ContaInativa, IOException, LimiteUltrapassado {
 		if (this.credito < limite) {
 			this.credito += valor;
 			this.limite -= valor;
+			this.produtos.add(produto);
+			this.valores.add(valor);
 			
 			OutputStream fos = new FileOutputStream("arquivo.txt");
 			Writer wt = new OutputStreamWriter(fos);
@@ -43,7 +49,31 @@ public class CartaoCredito extends Cartao {
 			LeituraArquivo.leArquivo();
 				
 		} else {
+			throw new LimiteUltrapassado("Limite do cartão ultrapassado!\nNão compre mais do que o limite de créditos disponíveis.");
+		}
+	}
+	
+	public void exibirFatura() throws IOException {
+		if (this.produtos.size() > -1) {
+			OutputStream fos = new FileOutputStream("arquivo.txt");
+			Writer wt = new OutputStreamWriter(fos);
+			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("Fatura do cartão de crédito");
+			bw.newLine();
+			
+			for (int i = 0; i < this.produtos.size(); i++) {
+				bw.write("Produto: " + this.produtos.get(i));
+				bw.newLine();
+				bw.write("Valor: R$ " + this.valores.get(i));
+				bw.newLine();
+			}
+			
+			bw.close();
+			
+			LeituraArquivo.leArquivo();
+		} else {
+			throw new ArrayIndexOutOfBoundsException("Não foi comprado nada no cartão de crédito!");
 		}
 	}
 	
@@ -55,8 +85,7 @@ public class CartaoCredito extends Cartao {
 		return limite;
 	}
 	
-	public Cliente getProprietario() {
-		return proprietario;
+	public Conta getTitular() {
+		return titular;
 	}
-
 }
