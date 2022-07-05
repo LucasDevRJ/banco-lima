@@ -13,7 +13,7 @@ public class Principal {
 	public static void main(String[] args) throws Exception {
 		InformacoesPessoais ip1 = new InformacoesPessoais("Lucas", "Pereira", "15/04/1999", "111.222.111-11", "22.111.444-1", "brasileiro");
 		Endereco ed1 = new Endereco("21123-555", "Rio de Janeiro", "Rio de Janeiro", "Tijuca", "Gadernal", 203, "Próximo ao posto Ipiranga", "Casa número 204");
-		Cliente cf1 = new ClienteFisico(ip1, ed1);
+		Cliente cf1 = new ClienteFisico(ip1, ed1, "Lima Plus");
 		ContaCorrente cc1 = new ContaCorrente(cf1, "11", "33213", 5000.00f);
 		ContaPoupanca cp1 = new ContaPoupanca(cf1, "21", "23421", 300.00f);
 		
