@@ -20,6 +20,7 @@ public class CartaoCredito extends Cartao {
 	private Conta titular;
 	private ArrayList<String> produtos = new ArrayList<String>();
 	private ArrayList<Float> valores = new ArrayList<Float>();
+	private float valorFatura;
 
 	public CartaoCredito(String numero, String validade, int codigo, int senha, float limite, Conta titular) {
 		super(numero, validade, codigo, senha);
@@ -63,11 +64,14 @@ public class CartaoCredito extends Cartao {
 			bw.newLine();
 			
 			for (int i = 0; i < this.produtos.size(); i++) {
+				this.valorFatura += this.valores.get(i);
 				bw.write("Produto: " + this.produtos.get(i));
 				bw.newLine();
 				bw.write("Valor: R$ " + this.valores.get(i));
 				bw.newLine();
 			}
+			
+			bw.write("Valor total: R$ " + this.valorFatura);
 			
 			bw.close();
 			
