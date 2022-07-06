@@ -47,5 +47,11 @@ public class Principal {
 		
 		CartaoDebito cdd = new CartaoDebito("3221 3243 6754 1414", "13/06/2030", 211, 3434, cc1);
 		cdd.comprarComCartao("Fone de ouvido", 90.0f);
+		System.out.println();
+		cdd.comprarComCartao("Mercado", 230.0f);
+		System.out.println();
+		cdd.exibirExtrato();
+		System.out.println();
+		cdd.exibirDebito();
 	}
 }

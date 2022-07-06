@@ -1,3 +1,1 @@
-Compra realizada com sucesso!
-Produto: Fone de ouvido
-Valor: R$ 90.0
+Valor total do saldo: R$ 3880.0
