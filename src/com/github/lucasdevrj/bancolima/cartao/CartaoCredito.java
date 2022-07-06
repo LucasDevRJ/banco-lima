@@ -9,7 +9,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 import com.github.lucasdevrj.bancolima.conta.Conta;
-import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
 import com.github.lucasdevrj.bancolima.excecao.LimiteUltrapassado;
 import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
@@ -18,15 +17,11 @@ public class CartaoCredito extends Cartao {
 	
 	private float credito = 0.0f;
 	private float limite;
-	private Conta titular;
-	private ArrayList<String> produtos = new ArrayList<String>();
-	private ArrayList<Float> valores = new ArrayList<Float>();
 	private float valorFatura;
 
 	public CartaoCredito(String numero, String validade, int codigo, int senha, float limite, Conta titular) {
-		super(numero, validade, codigo, senha);
+		super(numero, validade, codigo, senha, titular);
 		this.limite = limite;
-		this.titular = titular;
 	}
 	
 	public void comprarComCartao(String produto, float valor) throws Exception, IOException{
@@ -83,8 +78,8 @@ public class CartaoCredito extends Cartao {
 	}
 	
 	public void pagarFatura() throws IOException, SaldoInsuficiente {
-		if (this.titular.getSaldo() >= this.valorFatura) {
-			this.titular.setSaldo(this.titular.getSaldo() - this.valorFatura);
+		if (this.getTitular().getSaldo() >= this.valorFatura) {
+			super.getTitular().setSaldo(super.getTitular().getSaldo() - this.valorFatura);
 			
 			OutputStream fos = new FileOutputStream("arquivo.txt");
 			Writer wt = new OutputStreamWriter(fos);
@@ -108,9 +103,5 @@ public class CartaoCredito extends Cartao {
 	
 	public float getLimite() {
 		return limite;
-	}
-	
-	public Conta getTitular() {
-		return titular;
 	}
 }

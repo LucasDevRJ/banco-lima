@@ -35,9 +35,9 @@ public class Principal {
 		bl.exibeContas();
 
 		CartaoCredito cdc = new CartaoCredito("3444 1222 4333 1212", "12/06/2027", 322, 1212, 2000.00f, cc1);
-		cdc.comprarComCartaoCredito("GTA V", 180.00f);
+		cdc.comprarComCartao("GTA V", 180.00f);
 		System.out.println();
-		cdc.comprarComCartaoCredito("FIFA 23", 320.00f);
+		cdc.comprarComCartao("FIFA 23", 320.00f);
 		System.out.println();
 		cdc.exibirFatura();
 		System.out.println();
