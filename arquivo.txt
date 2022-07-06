@@ -1,2 +1,3 @@
-Fatura paga com sucesso!
-Valor total da fatura: R$ 500.0
+Compra realizada com sucesso!
+Produto: Fone de ouvido
+Valor: R$ 90.0

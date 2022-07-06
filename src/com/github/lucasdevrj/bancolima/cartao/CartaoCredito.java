@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.ArrayList;
-
 import com.github.lucasdevrj.bancolima.conta.Conta;
 import com.github.lucasdevrj.bancolima.excecao.LimiteUltrapassado;
 import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
@@ -28,8 +26,8 @@ public class CartaoCredito extends Cartao {
 		if (this.credito < limite) {
 			this.credito += valor;
 			this.limite -= valor;
-			this.produtos.add(produto);
-			this.valores.add(valor);
+			this.getProdutos().add(produto);
+			this.getValores().add(valor);
 			
 			OutputStream fos = new FileOutputStream("arquivo.txt");
 			Writer wt = new OutputStreamWriter(fos);
@@ -51,7 +49,7 @@ public class CartaoCredito extends Cartao {
 	}
 	
 	public void exibirFatura() throws IOException {
-		if (this.produtos.size() > -1) {
+		if (this.getProdutos().size() > -1) {
 			OutputStream fos = new FileOutputStream("arquivo.txt");
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
@@ -59,11 +57,11 @@ public class CartaoCredito extends Cartao {
 			bw.write("Fatura do cartão de crédito");
 			bw.newLine();
 			
-			for (int i = 0; i < this.produtos.size(); i++) {
-				this.valorFatura += this.valores.get(i);
-				bw.write("Produto: " + this.produtos.get(i));
+			for (int i = 0; i < this.getProdutos().size(); i++) {
+				this.valorFatura += this.getValores().get(i);
+				bw.write("Produto: " + this.getProdutos().get(i));
 				bw.newLine();
-				bw.write("Valor: R$ " + this.valores.get(i));
+				bw.write("Valor: R$ " + this.getValores().get(i));
 				bw.newLine();
 			}
 			

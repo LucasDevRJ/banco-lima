@@ -2,6 +2,7 @@ package com.github.lucasdevrj.bancolima.principal;
 
 import com.github.lucasdevrj.bancolima.banco.BancoLima;
 import com.github.lucasdevrj.bancolima.cartao.CartaoCredito;
+import com.github.lucasdevrj.bancolima.cartao.CartaoDebito;
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
 import com.github.lucasdevrj.bancolima.cliente.ClienteFisico;
 import com.github.lucasdevrj.bancolima.conta.ContaCorrente;
@@ -42,5 +43,9 @@ public class Principal {
 		cdc.exibirFatura();
 		System.out.println();
 		cdc.pagarFatura();
+		System.out.println();
+		
+		CartaoDebito cdd = new CartaoDebito("3221 3243 6754 1414", "13/06/2030", 211, 3434, cc1);
+		cdd.comprarComCartao("Fone de ouvido", 90.0f);
 	}
 }
