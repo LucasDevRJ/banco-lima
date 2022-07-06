@@ -1,7 +1,6 @@
 package com.github.lucasdevrj.bancolima.cartao;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import com.github.lucasdevrj.bancolima.conta.Conta;
 import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
 import com.github.lucasdevrj.bancolima.excecao.LimiteUltrapassado;
+import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
 public class CartaoCredito extends Cartao {
@@ -29,7 +29,7 @@ public class CartaoCredito extends Cartao {
 		this.titular = titular;
 	}
 	
-	public void comprarComCartaoCredito(String produto, float valor) throws ContaInativa, IOException, LimiteUltrapassado {
+	public void comprarComCartao(String produto, float valor) throws Exception, IOException{
 		if (this.credito < limite) {
 			this.credito += valor;
 			this.limite -= valor;
@@ -82,7 +82,7 @@ public class CartaoCredito extends Cartao {
 		}
 	}
 	
-	public void pagarFatura() throws IOException {
+	public void pagarFatura() throws IOException, SaldoInsuficiente {
 		if (this.titular.getSaldo() >= this.valorFatura) {
 			this.titular.setSaldo(this.titular.getSaldo() - this.valorFatura);
 			
@@ -97,6 +97,8 @@ public class CartaoCredito extends Cartao {
 			bw.close();
 			
 			LeituraArquivo.leArquivo();
+		} else {
+			throw new SaldoInsuficiente("Saldo insuficiente para pagar a fatura!");
 		}
 	}
 	

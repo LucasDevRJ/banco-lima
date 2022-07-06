@@ -1,5 +1,10 @@
 package com.github.lucasdevrj.bancolima.cartao;
 
+import java.io.IOException;
+
+import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
+import com.github.lucasdevrj.bancolima.excecao.LimiteUltrapassado;
+
 public abstract class Cartao {
 
 	private String numero;
@@ -13,6 +18,8 @@ public abstract class Cartao {
 		this.codigo = codigo;
 		this.senha = senha;
 	}
+	
+	public abstract void comprarComCartao(String produto, float valor) throws Exception, IOException;
 	
 	public String getNumero() {
 		return numero;
