@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.bancolima.cartao;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -78,6 +79,24 @@ public class CartaoCredito extends Cartao {
 			LeituraArquivo.leArquivo();
 		} else {
 			throw new ArrayIndexOutOfBoundsException("Não foi comprado nada no cartão de crédito!");
+		}
+	}
+	
+	public void pagarFatura() throws IOException {
+		if (this.titular.getSaldo() >= this.valorFatura) {
+			this.titular.setSaldo(this.titular.getSaldo() - this.valorFatura);
+			
+			OutputStream fos = new FileOutputStream("arquivo.txt");
+			Writer wt = new OutputStreamWriter(fos);
+			BufferedWriter bw = new BufferedWriter(wt);
+			
+			bw.write("Fatura paga com sucesso!");
+			bw.newLine();
+			bw.write("Valor total da fatura: R$ " + this.valorFatura);
+			
+			bw.close();
+			
+			LeituraArquivo.leArquivo();
 		}
 	}
 	

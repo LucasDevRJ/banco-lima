@@ -65,6 +65,10 @@ public abstract class Conta {
 		return saldo;
 	}
 	
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
+	}
+	
 	public String getAgencia() {
 		return agencia;
 	}

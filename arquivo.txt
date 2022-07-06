@@ -1,6 +1,2 @@
-Fatura do cartão de crédito
-Produto: GTA V
-Valor: R$ 180.0
-Produto: FIFA 23
-Valor: R$ 320.0
-Valor total: R$ 500.0
+Fatura paga com sucesso!
+Valor total da fatura: R$ 500.0
