@@ -89,9 +89,13 @@ public class CartaoCredito extends Cartao {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("----------|Fatura paga|----------");
+			bw.newLine();
 			bw.write("Fatura paga com sucesso!");
 			bw.newLine();
 			bw.write("Valor total da fatura: R$ " + this.valorFatura);
+			bw.newLine();
+			bw.write("---------------------------------");
 			
 			this.valorFatura = 0.0f;
 			this.getProdutos().clear();
