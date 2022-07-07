@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.bancolima.conta;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -8,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import com.github.lucasdevrj.bancolima.cliente.Cliente;
+import com.github.lucasdevrj.bancolima.excecao.ContaInativa;
 import com.github.lucasdevrj.bancolima.excecao.SaldoInsuficiente;
 import com.github.lucasdevrj.bancolima.leituraarquivo.LeituraArquivo;
 
@@ -40,6 +42,29 @@ public class ContaCorrente extends Conta {
 			LeituraArquivo.leArquivo();
 		} else {
 			throw new SaldoInsuficiente("Saldo insuficiente para fazer a transferência!");
+		}
+	}
+	
+	@Override
+	public void exibirConta() throws IOException, ContaInativa {
+		if (this.isEstaAtiva() == true) {
+			OutputStream fos = new FileOutputStream("arquivo.txt");
+			Writer wt = new OutputStreamWriter(fos);
+			BufferedWriter bw = new BufferedWriter(wt);
+			
+			bw.write("Nome do titular: " + this.getTitular().getInformacoesPessoais().getNome() + " " + this.getTitular().getInformacoesPessoais().getSobrenome());
+			bw.newLine();
+			bw.write("CPF do titular: " + this.getTitular().getInformacoesPessoais().getCpf());
+			bw.newLine();
+			bw.write("Saldo: " + this.getSaldo());
+			bw.newLine();
+			bw.write("Tipo de conta: Corrente");
+			
+			bw.close();
+			
+			LeituraArquivo.leArquivo();
+		} else {
+			throw new ContaInativa("A conta esta inativa!\nAtive a conta para poder visualizar informações sobre ela.");
 		}
 	}
 	

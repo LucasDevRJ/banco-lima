@@ -57,6 +57,8 @@ public abstract class Conta {
 		
 	}
 	
+	public abstract void exibirConta() throws IOException, ContaInativa;
+	
 	public Cliente getTitular() {
 		return titular;
 	}
