@@ -33,11 +33,15 @@ public class CartaoCredito extends Cartao {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("----------|Compra realizada com cartão|----------");
+			bw.newLine();
 			bw.write("Compra realizada com sucesso!");
 			bw.newLine();
 			bw.write("Produto: " + produto);
 			bw.newLine();
 			bw.write("Valor da Compra: R$ " + valor);
+			bw.newLine();
+			bw.write("------------------------------------------------");
 			
 			bw.close();
 			
