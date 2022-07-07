@@ -66,6 +66,8 @@ public class CartaoDebito extends Cartao {
 			bw.close();
 			
 			LeituraArquivo.leArquivo();
+		} else {
+			throw new ArrayIndexOutOfBoundsException("Não houve compras no cartão de débito!");
 		}
 	}
 	
