@@ -1,7 +1,6 @@
 package com.github.lucasdevrj.bancolima.conta;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -27,7 +26,11 @@ public class ContaCorrente extends Conta {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("----------|Transferência bancária|----------");
+			bw.newLine();
 			bw.write("Valor transferido com sucesso!");
+			bw.newLine();
+			bw.write("Titular da transferência: " + this.getTitular().getInformacoesPessoais().getNome() + " " + this.getTitular().getInformacoesPessoais().getSobrenome());
 			bw.newLine();
 			bw.write("Valor transferido: R$ " + valorTransferencia);
 			bw.newLine();
@@ -35,7 +38,7 @@ public class ContaCorrente extends Conta {
 			bw.newLine();
 			bw.write("CPF do Recebedor: " + contaRecebedora.getTitular().getInformacoesPessoais().getCpf());
 			bw.newLine();
-			bw.newLine();
+			bw.write("--------------------------------------------");
 			
 			bw.close();
 			
