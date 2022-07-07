@@ -87,6 +87,10 @@ public class CartaoCredito extends Cartao {
 			bw.newLine();
 			bw.write("Valor total da fatura: R$ " + this.valorFatura);
 			
+			this.valorFatura = 0.0f;
+			this.getProdutos().clear();
+			this.getValores().clear();
+			
 			bw.close();
 			
 			LeituraArquivo.leArquivo();
@@ -101,5 +105,9 @@ public class CartaoCredito extends Cartao {
 	
 	public float getLimite() {
 		return limite;
+	}
+	
+	public float getValorFatura() {
+		return valorFatura;
 	}
 }
