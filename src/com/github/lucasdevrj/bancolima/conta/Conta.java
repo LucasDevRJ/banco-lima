@@ -39,11 +39,13 @@ public abstract class Conta {
 				Writer wt = new OutputStreamWriter(fos);
 				BufferedWriter bw = new BufferedWriter(wt);
 				
+				bw.write("----------|Deposito|----------");
+				bw.newLine();
 				bw.write("Deposito concluido com sucesso!");
 				bw.newLine();
 				bw.write("Valor do deposito: R$ " + valor);
 				bw.newLine();
-				bw.newLine();
+				bw.write("-----------------------------");
 				
 				bw.close();
 				
