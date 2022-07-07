@@ -55,6 +55,8 @@ public class ContaCorrente extends Conta {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("-----------|Informações da conta|----------");
+			bw.newLine();
 			bw.write("Nome do titular: " + this.getTitular().getInformacoesPessoais().getNome() + " " + this.getTitular().getInformacoesPessoais().getSobrenome());
 			bw.newLine();
 			bw.write("CPF do titular: " + this.getTitular().getInformacoesPessoais().getCpf());
@@ -62,6 +64,8 @@ public class ContaCorrente extends Conta {
 			bw.write("Saldo: " + this.getSaldo());
 			bw.newLine();
 			bw.write("Tipo de conta: Corrente");
+			bw.newLine();
+			bw.write("-------------------------------------------");
 			
 			bw.close();
 			
