@@ -58,7 +58,7 @@ public class CartaoCredito extends Cartao {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
-			bw.write("Fatura do cartão de crédito");
+			bw.write("----------|Fatura do cartão de crédito|----------");
 			bw.newLine();
 			
 			for (int i = 0; i < this.getProdutos().size(); i++) {
@@ -70,6 +70,8 @@ public class CartaoCredito extends Cartao {
 			}
 			
 			bw.write("Valor total: R$ " + this.valorFatura);
+			bw.newLine();
+			bw.write("------------------------------------------------");
 			
 			bw.close();
 			
