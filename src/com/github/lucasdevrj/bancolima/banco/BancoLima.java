@@ -34,10 +34,15 @@ public class BancoLima {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("----------|Exibição das contas do banco|----------");
+			bw.newLine();
+			
 			for (int i = 0; i < this.getContas().size(); i++) {
 				bw.write(this.contas.toString());
 				bw.newLine();
 			}
+			
+			bw.write("-------------------------------------------------");
 			
 			bw.close();
 			

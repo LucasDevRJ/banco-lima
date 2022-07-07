@@ -25,8 +25,11 @@ public class Principal {
 		ContaCorrente cc2 = new ContaCorrente(cf2,"12", "11111", 9000.00f);
 		
 		cc1.exibirConta();
+		System.out.println();
 		cc1.deposita(300.00f);
+		System.out.println();
 		cc1.transfere(cc2, 600.00f);
+		System.out.println();
 		cc1.exibirConta();
 		
 		cp1.investir(300.00f, 3);
