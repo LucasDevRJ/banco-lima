@@ -29,12 +29,15 @@ public class ContaPoupanca extends Conta {
 				Writer osw = new OutputStreamWriter(fos);
 				BufferedWriter bw = new BufferedWriter(osw);
 				
+				bw.write("----------|Investimento|----------");
+				bw.newLine();
 				bw.write("Valor investido: R$ " + valor);
 				bw.newLine();
 				bw.write("Meses investidos: " + meses);
 				bw.newLine();
 				bw.write("Valor retornado: R$ " + valorRetornado);
 				bw.newLine();
+				bw.write("----------------------------------");
 				
 				bw.close();
 				

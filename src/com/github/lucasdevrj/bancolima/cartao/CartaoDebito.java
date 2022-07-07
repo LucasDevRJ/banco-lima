@@ -80,7 +80,17 @@ public class CartaoDebito extends Cartao {
 		Writer wt = new OutputStreamWriter(fos);
 		BufferedWriter bw = new BufferedWriter(wt);
 		
-		bw.write("Valor total do saldo: R$ " + super.getTitular().getSaldo());
+		bw.write("----------|Informações cartão de débito|----------");
+		bw.newLine();
+		bw.write("Nome do titular: " + this.getTitular().getTitular().getInformacoesPessoais().getNome() + " " + this.getTitular().getTitular().getInformacoesPessoais().getSobrenome());
+		bw.newLine();
+		bw.write("Agência: " + this.getTitular().getAgencia());
+		bw.newLine();
+		bw.write("Número: " + this.getNumero());
+		bw.newLine();
+		bw.write("Saldo: R$ " + super.getTitular().getSaldo());
+		bw.newLine();
+		bw.write("--------------------------------------------------");
 		
 		bw.close();
 		
