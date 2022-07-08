@@ -55,6 +55,8 @@ public class CartaoDebito extends Cartao {
 			Writer wt = new OutputStreamWriter(fos);
 			BufferedWriter bw = new BufferedWriter(wt);
 			
+			bw.write("----------|Extrato|----------");
+			bw.newLine();
 			bw.write("Extrato do cartão de débito");
 			bw.newLine();
 			
@@ -66,6 +68,8 @@ public class CartaoDebito extends Cartao {
 			}
 			
 			bw.write("Valor total do extrato: " + this.valorExtrato);
+			bw.newLine();
+			bw.write("-------------------------------");
 			
 			bw.close();
 			

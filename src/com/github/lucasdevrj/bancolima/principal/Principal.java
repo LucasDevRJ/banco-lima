@@ -49,8 +49,6 @@ public class Principal {
 		System.out.println();
 		cdc.pagarFatura();
 		System.out.println();
-		cdc.exibirFatura();
-		System.out.println();
 		
 		CartaoDebito cdd = new CartaoDebito("3221 3243 6754 1414", "13/06/2030", 211, 3434, cc1);
 		cdd.comprarComCartao("Fone de ouvido", 90.0f);

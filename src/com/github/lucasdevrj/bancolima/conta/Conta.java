@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.bancolima.conta;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -60,6 +61,34 @@ public abstract class Conta {
 	}
 	
 	public abstract void exibirConta() throws IOException, ContaInativa;
+	
+	public void desativa() throws IOException, ContaInativa {
+		if (this.isEstaAtiva() == true) {
+			this.estaAtiva = false;
+			
+			OutputStream fos = new FileOutputStream("arquivo.txt");
+			Writer wt = new OutputStreamWriter(fos);
+			BufferedWriter bw = new BufferedWriter(wt);
+			
+			bw.write("----------|Desativação de conta|----------");
+			bw.newLine();
+			bw.write("Conta desativa com sucesso!");
+			bw.newLine();
+			bw.write("Nome do titular: " + this.getTitular().getInformacoesPessoais().getNome() + " " + this.getTitular().getInformacoesPessoais().getSobrenome());
+			bw.newLine();
+			bw.write("Agência: " + this.getAgencia());
+			bw.newLine();
+			bw.write("Número: " + this.numero);
+			bw.newLine();
+			bw.write("------------------------------------------");
+			
+			bw.close();
+			
+			LeituraArquivo.leArquivo();
+		} else {
+			throw new ContaInativa("A conta já esta desativada!");
+		}
+	}
 	
 	public Cliente getTitular() {
 		return titular;
