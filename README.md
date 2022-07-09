@@ -31,3 +31,11 @@ O **Banco Lima** é um sistema bancário feito em Java, onde o usuário poderá 
 - `Funcionalidade 11`: transferir
 - `Funcionalidade 12`: investir
 - `Funcionalidade 13`: depositar
+
+## :heavy_dollar_sign: Acesso ao projeto
+
+**Para acessar o projeto basta baixa-lo <a href="https://github.com/LucasDevRJ/banco-lima/archive/refs/heads/main.zip">aqui</a>.**
+
+## 🛠️ Abrir e rodar o projeto
+
+**Apresente as instruções necessárias para abrir e executar o projeto**
