@@ -36,6 +36,30 @@ O **Banco Lima** é um sistema bancário feito em Java, onde o usuário poderá 
 
 **Para acessar o projeto basta baixa-lo <a href="https://github.com/LucasDevRJ/banco-lima/archive/refs/heads/main.zip">aqui</a>.**
 
-## 🛠️ Abrir e rodar o projeto
+## :money_with_wings: Abrir e rodar o projeto
 
-**Apresente as instruções necessárias para abrir e executar o projeto**
+**1. Tenha alguma IDE que compile Java;**
+
+**2. Faça o download do projeto;**
+
+**3. Coloque o projeto descompactado na IDE;**
+
+**4. Curta o projeto.**
+
+## Tecnologias
+- `Java`
+
+## Conteúdo
+
+- Orientação a Objetos;
+- Classes;
+- Classes Abstratas;
+- Herança;
+- Polimorfismo;
+- Gravação em arquivo;
+- Leitura de arquivo;
+- Entre outros.
+
+## Autores
+
+[<img src="https://avatars.githubusercontent.com/u/95040236?v=4" width=115><br><sub>Lucas Pereira de Lima</sub>](https://github.com/LucasDevRJ)
